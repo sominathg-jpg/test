@@ -69,7 +69,17 @@ void pop()
 
 int getPeek()
 {
-    return a[Top];
+
+    if (Top == -1)
+    {
+        printf("stack is underflow\n");
+        return -1;
+    }
+    else
+    {
+
+        return a[Top];
+    }
 }
 
 int main()
