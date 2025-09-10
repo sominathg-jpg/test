@@ -52,9 +52,8 @@ void pop()
 {
     // checking the stack is undeflow or what
 
-    if (Top == 0)
+    if (Top == -1)
     {
-
         printf("stack is already in the underflow condition\n");
     }
     else

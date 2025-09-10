@@ -68,18 +68,29 @@ struct Node *insertAtStart(struct Node *head, int data)
 struct Node *insertAtEnd(struct Node *head, int data)
 {
 
-    while (head != NULL)
+    if (head == NULL)
     {
 
-        if (head->next->next == NULL)
-        {
-            struct Node *newnode = create_node(data);
-            head->next->next = newnode;
-            printf("node inserted at end..\n");
-            break;
-        }
+        head = create_node(data);
+        printf("node is insertedat the last\n");
+        return head;
+    }
+    else
+    {
 
-        head = head->next;
+        while (head != NULL)
+        {
+
+            if (head->next->next == NULL)
+            {
+                struct Node *newnode = create_node(data);
+                head->next->next = newnode;
+                printf("node inserted at end..\n");
+                break;
+            }
+
+            head = head->next;
+        }
     }
 
     return head;
@@ -102,16 +113,22 @@ struct Node *delete_node_from_list(struct Node *head, int position)
     {
         /// if position if another expect 0 th position
         int count = 0;
+        struct Node *temp = head;
         while (head != NULL)
         {
+            printf("skdfas\n");
             if (count + 1 == position)
             {
+
                 head->next = head->next->next;
                 printf("node deleted...\n");
+
                 break;
             }
+            count++;
+            head = head->next;
         }
-        return head;
+        return temp;
     }
 
     return head;

@@ -56,7 +56,7 @@ void postOrderTraversal(struct Node *root)
         return;
 
     postOrderTraversal(root->left);
-    inorderTraversal(root->right);
+    postOrderTraversal(root->right);
     printf("%d", root->data);
 }
 
